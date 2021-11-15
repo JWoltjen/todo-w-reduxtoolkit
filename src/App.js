@@ -1,11 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import Todos from '../src/components/Todos'
+import AddTodoForm from './components/AddTodoForm';
+import TodoList from './components/TodoList';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (
-    <div className="App">
-      <Todos/>
+    <div className="container bg-white p-4 mt-5">
+      <AddTodoForm/>
+      <TodoList/>
     </div>
   );
 }
