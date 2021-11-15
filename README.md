@@ -1,6 +1,12 @@
 # Basic Todo Application with Redux Toolkit
 
 
+### How is Redux Toolkit different from Redux? 
+
+With the createSlice function you can focus on changing a single piece of the state tree in your application at a time. 
+With createSlice, actions are created for you, so you don't have to write switch statements. 
+You can mutate state directly, so you don't have to worry about Ojbect.assign() or splice with the spread operator. 
+
 ### How does todoSlice work? 
 
 In the todoSlice, a thunk is created. 
