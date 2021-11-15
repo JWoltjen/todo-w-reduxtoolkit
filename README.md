@@ -5,6 +5,10 @@
 
 With the createSlice function you can focus on changing a single piece of the state tree in your application at a time. With createSlice, actions are created for you, so you don't have to write switch statements. You can mutate state directly, so you don't have to worry about Ojbect.assign() or splice with the spread operator.  
 
+### What are Thunks and how does this application use them? 
+
+Thunks are a piece of middleware that makes asynchronous calls to an api. For redux, thunks are a pattern of writing functions with logic inside that can interact with Redux store's dispatch method. This application uses them to make asynchronous calls to the API which is storing a list of todos. 
+
 ### How does todoSlice work? 
 
 In the todoSlice, a thunk is created. 
