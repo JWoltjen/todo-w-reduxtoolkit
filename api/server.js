@@ -3,7 +3,6 @@ const dotenv = require('dotenv')
 const colors = require('colors')
 const cors = require('cors'); 
 const { nanoid } = require('nanoid');
-const { response } = require('express');
 dotenv.config({path: './config.env'})
 
 const app = express(); 
@@ -11,26 +10,26 @@ app.use(cors());
 app.use(express.json())
 
 let todos = [
-    {
-        id: nanoid(), 
-        title: 'todo 1', 
-        completed: true, 
-    }, 
-    {
-        id: nanoid(), 
-        title: 'todo 2', 
-        completed: false
-    }, 
-    {
-        id: nanoid(), 
-        title: 'todo 3', 
-        completed: false, 
-    }, 
-    {
-        id: nanoid(), 
-        title: 'todo 4', 
-        completed: true
-    }
+    // {
+    //     id: nanoid(), 
+    //     title: 'todo 1', 
+    //     completed: true, 
+    // }, 
+    // {
+    //     id: nanoid(), 
+    //     title: 'todo 2', 
+    //     completed: false
+    // }, 
+    // {
+    //     id: nanoid(), 
+    //     title: 'todo 3', 
+    //     completed: false, 
+    // }, 
+    // {
+    //     id: nanoid(), 
+    //     title: 'todo 4', 
+    //     completed: true
+    // }
 ]
 
 app.get('/todos', (req, res) => {
@@ -53,14 +52,20 @@ app.patch('/todos/:id', (req, res) => {
     return res.send(todos[index])
 })
 
-app.delete('/todos:id', (req, res) => {
-    const id = req.params.id; 
-    const index = todos.findIndex((todo) => todo.id == id); 
-    if (index > -1){
-        todos.splice(index, 1); 
+app.delete('/todos/:id', (req, res) => {
+    try {
+        const id = req.params.id;
+	const index = todos.findIndex((todo) => todo.id == id);
+	if (index > -1) {
+		todos.splice(index, 1);
+	}
+	res.send(todos);
+    console.log(todos)
+    } catch (error) {
+        console.log(error)
     }
-    return res.send(todos);  
-})
+	
+});
 
 const PORT = 7000; 
 
